@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JapriDonk!</string>
+    <string name="enter_the_number">Nomor WhatsApp</string>
+    <string name="submit">Kirim</string>
+    <string name="enter_the_message">Pesan (optional)</string>
+    <string name="app_information">Informasi Aplikasi</string>
+    <string name="dialog_message_info">JapriDonk! adalah aplikasi untuk memulai sebuah percakapan WhatsApp tanpa menyimpan kontak penerima.\n\nSementara ini hanya bisa menggunakan nomor Indonesia, baik dalam format +62 dan 08.\n\nAplikasi ini dikembangkan oleh Muhammad Abdal Rizky.\n\nKode sumber:\nhttps://github.com/abdalrizky/japri-donk-android</string>
+    <string name="dialog_positive_btn_info">Oke</string>
+    <string name="clear_field">Bersihkan Isian</string>
+</resources>
