@@ -2,9 +2,20 @@
     <string name="app_name">JapriDonk!</string>
     <string name="enter_the_number">Nomor WhatsApp</string>
     <string name="submit">Kirim</string>
-    <string name="enter_the_message">Pesan (optional)</string>
+    <string name="enter_the_message">Pesan (opsional)</string>
     <string name="app_information">Informasi Aplikasi</string>
-    <string name="dialog_message_info">JapriDonk! adalah aplikasi untuk memulai sebuah percakapan WhatsApp tanpa menyimpan kontak penerima.\n\nSementara ini hanya bisa menggunakan nomor Indonesia, baik dalam format +62 dan 08.\n\nAplikasi ini dikembangkan oleh Muhammad Abdal Rizky.\n\nKode sumber:\nhttps://github.com/abdalrizky/japri-donk-android</string>
-    <string name="dialog_positive_btn_info">Oke</string>
+    <string name="dialog_title_info">Tentang JapriDonk!</string>
+    <string name="dialog_message_info">JapriDonk! adalah aplikasi untuk memulai sebuah percakapan WhatsApp tanpa menyimpan kontak penerima.\n\nSementara ini hanya bisa menggunakan nomor Indonesia, baik dalam format +62 dan 08.\n\nPastikan ponsel Anda sudah terpasang aplikasi WhatsApp.\n\nAplikasi ini dikembangkan oleh Muhammad Abdal Rizky.\n\nKode sumber terbuka:\n<a href="https://github.com/abdalrizky/japri-donk-android">https://github.com/abdalrizky/japri-donk-android</a></string>
+    <string name="source_code_url">https://github.com/abdalrizky/japri-donk-android</string>
+    <string name="ok">Oke</string>
+    <string name="cancel">Batal</string>
     <string name="clear_field">Bersihkan Isian</string>
+    <string name="message_placeholder">Pesan:\n%1s</string>
+    <string name="history_title">Riwayat</string>
+    <string name="leave_from_app">Keluar</string>
+    <string name="whatsapp_package_name">com.whatsapp</string>
+    <string name="not_installed">WhatsApp Belum Terinstal</string>
+    <string name="make_sure_you_install_whatsapp">Pastikan Anda menginstal WhatsApp terlebih dahulu sebelum menggunakan aplikasi ini.</string>
+    <string name="empty_history_message">Belum ada riwayat.\nSemua aktivitas akan muncul di sini.</string>
+    <string name="view_source_code">Lihat Kode Sumber</string>
 </resources>
