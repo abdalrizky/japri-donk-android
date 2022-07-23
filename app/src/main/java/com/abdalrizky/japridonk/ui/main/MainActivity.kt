@@ -1,5 +1,6 @@
-package com.abdalrizky.japridonk
+package com.abdalrizky.japridonk.ui.main
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -10,18 +11,33 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.abdalrizky.japridonk.R
 import com.abdalrizky.japridonk.adapter.HistoryAdapter
 import com.abdalrizky.japridonk.database.entity.Recipient
 import com.abdalrizky.japridonk.databinding.ActivityMainBinding
+import com.abdalrizky.japridonk.ui.history.HistoryActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val number = result.data?.getStringExtra(HistoryActivity.EXTRA_NUMBER)
+                val message = result.data?.getStringExtra(HistoryActivity.EXTRA_MESSAGE)
+                binding.apply {
+                    edtNumber.setText(number)
+                    edtMessage.setText(message)
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        viewModel.getHistory().observe(this) { history ->
+        viewModel.getFiveLastHistory().observe(this) { history ->
             if (history.isNotEmpty()) {
                 val adapter = HistoryAdapter(history)
                 binding.apply {
@@ -56,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                             edtMessage.setText(recipient.message)
                             edtNumber.clearFocus()
                             edtMessage.clearFocus()
-                            nestedScrollView.scrollTo(0,0)
+                            nestedScrollView.scrollTo(0, 0)
                         }
 
                         override fun onClearButtonClicked(recipient: Recipient) {
@@ -65,14 +81,12 @@ class MainActivity : AppCompatActivity() {
                     })
                     lottieEmptyHistory.visibility = View.GONE
                     tvHistoryEmpty.visibility = View.GONE
-                    ivDeleteAllHistory.visibility = View.VISIBLE
                 }
             } else {
                 binding.apply {
                     rvHistory.visibility = View.GONE
                     lottieEmptyHistory.visibility = View.VISIBLE
                     tvHistoryEmpty.visibility = View.VISIBLE
-                    ivDeleteAllHistory.visibility = View.GONE
                 }
             }
         }
@@ -82,23 +96,13 @@ class MainActivity : AppCompatActivity() {
             setEditTextListener()
             btnClear.setOnClickListener { clearField() }
             btnSubmit.setOnClickListener { submitForm() }
-            ivDeleteAllHistory.setOnClickListener {
-                MaterialAlertDialogBuilder(this@MainActivity)
-                    .setTitle("Hapus Riwayat")
-                    .setMessage("Anda yakin ingin menghapus semua riwayat aktivitas?")
-                    .setIcon(R.drawable.ic_delete_all_history)
-                    .setPositiveButton(R.string.ok) { _, _ ->
-                        viewModel.deleteAllHistory()
-                    }
-                    .setNegativeButton(R.string.cancel) { dialog, _ ->
-                        dialog.cancel()
-                    }
-                    .show()
+            ivToHistoryDetail.setOnClickListener {
+                resultLauncher.launch(Intent(this@MainActivity, HistoryActivity::class.java))
             }
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.activity_main, menu)
         return super.onCreateOptionsMenu(menu)
     }

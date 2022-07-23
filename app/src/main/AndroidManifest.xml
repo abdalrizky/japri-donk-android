@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JapriDonk">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.history.HistoryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_history"
+            android:theme="@style/Theme.JapriDonk" />
+        <activity
+            android:name="com.abdalrizky.japridonk.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

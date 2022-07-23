@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -13,11 +13,11 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            app:subtitleCentered="true"
+            app:titleCentered="true"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/activity_main"
-            app:subtitleCentered="true"
-            app:title="@string/app_name"
-            app:titleCentered="true" />
+            app:title="@string/title_main_activity" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -48,9 +48,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_number"
                     android:layout_width="match_parent"
-                    android:maxLength="13"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="13" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,7 +113,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
 
             <ImageView
-                android:id="@+id/iv_delete_all_history"
+                android:id="@+id/iv_to_history_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
@@ -121,8 +121,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:importantForAccessibility="no"
-                android:src="@drawable/ic_delete_all_history"
-                android:visibility="gone"
+                android:src="@drawable/ic_arrow"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_history_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_history_title"
@@ -131,24 +130,13 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_history"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_history_title"
-                tools:listitem="@layout/item_history" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_history_empty"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:gravity="center"-->
-<!--                android:lineSpacingExtra="4dp"-->
-<!--                android:text="@string/empty_history_message"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_history_title" />-->
+                app:layout_constraintTop_toBottomOf="@+id/tv_history_title" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottie_empty_history"

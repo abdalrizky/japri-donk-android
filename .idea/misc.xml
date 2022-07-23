@@ -5,8 +5,13 @@
       <map>
         <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/drawable/ic_info.xml" value="0.151" />
         <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout-v23/item_history.xml" value="0.2" />
-        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/activity_history.xml" value="0.18" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/content_history.xml" value="0.2" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/fragment_first.xml" value="0.2" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/fragment_second.xml" value="0.2" />
         <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/layout/item_history.xml" value="0.33" />
+        <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/menu/activity_history.xml" value="0.15" />
         <entry key="..\:/kode/android/codelabs/JapriDonk/app/src/main/res/menu/activity_main.xml" value="0.2" />
       </map>
     </option>
@@ -20,7 +25,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.33" />
+        <option name="scale" value="0.18" />
       </ProjectState>
     </option>
   </component>
